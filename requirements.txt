@@ -24,4 +24,4 @@ requests==2.12.4
 six==1.10.0
 static3==0.7.0
 wrapt==1.10.8
-psycopg>=2.6.1
+psycopg==2.6.2
