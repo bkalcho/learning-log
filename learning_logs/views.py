@@ -52,7 +52,7 @@ def new_topic(request):
 def new_entry(request, topic_id):
     """Add a new entry."""
     topic = Topic.objects.get(id=topic_id)
-    check_topic_owner()
+    check_topic_owner(request, topic)
     
     if request.method != 'POST':
         # No data submitted; create a blank form.
