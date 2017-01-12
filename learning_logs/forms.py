@@ -10,6 +10,8 @@ class TopicForm(forms.ModelForm):
         model = Topic
         fields = ['text']
         labels = {'text': ''}
+        public = forms.BooleanField(required=False)
+
 
 class EntryForm(forms.ModelForm):
     class Meta:

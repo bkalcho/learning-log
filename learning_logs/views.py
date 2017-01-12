@@ -30,6 +30,7 @@ def topic(request, topic_id):
     context = {'topic': topic, 'entries': entries}
     return render(request, 'learning_logs/topic.html', context)
 
+
 @login_required
 def new_topic(request):
     """Add a new topic."""
@@ -42,6 +43,8 @@ def new_topic(request):
         if form.is_valid():
             new_topic = form.save(commit=False)
             new_topic.owner = request.user
+            if request.POST["public"]:
+                new_topic.public = True
             new_topic.save()
             return HttpResponseRedirect(reverse('learning_logs:topics'))
 
